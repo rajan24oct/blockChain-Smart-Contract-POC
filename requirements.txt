@@ -1,0 +1,5 @@
+flask
+flask-restful
+web3
+flask-marshmallow
+
