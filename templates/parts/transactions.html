@@ -1,0 +1,59 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+
+         <tr>
+            {% for elem in trns[0] %}
+                <th>{{ elem }}</th>
+            {% endfor %}
+            </tr>
+
+
+
+        </thead>
+        <tbody>
+
+        {% for trn in trns %}
+            <tr>
+            {% for elem in trn %}
+                <td>{{ trn[elem]}}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+
+<h2 class="pt-5"> Available Blocks Including Contract</h2>
+ <table class="table table-striped table-sm">
+        <thead>
+
+         <tr>
+            {% for elem in alltrns[0] %}
+                <th>{{ elem }}</th>
+            {% endfor %}
+            </tr>
+
+
+
+        </thead>
+        <tbody>
+
+        {% for trn in alltrns %}
+            <tr>
+            {% for elem in trn %}
+                <td>{{ trn[elem]}}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+</div>

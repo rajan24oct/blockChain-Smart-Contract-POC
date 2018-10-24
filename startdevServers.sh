@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # run BlockChain Development Node
 sudo /home/rajan/workarea/blockchain/appimage/ganache-1.2.2-x86_64.AppImage
 

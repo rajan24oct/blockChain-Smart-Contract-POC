@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %} - Digital Lab BlockChain : Smart Contract Demo</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+</head>
+
+
+<body>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Digital Lab: Blockchain Smart Contract Demo</a>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Help</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-md-2 d-none d-md-block bg-light sidebar pt-5">
+            <form method="post" action="/add" class="pt-5 bg-primary p-3">
+                <h2> Add a new Member </h2>
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    {{ form.name }}
+                </div>
+                 <div class="form-group">
+                    <label for="email">Email: </label>
+                    {{ form.email }}
+                </div>
+
+                 <div class="form-group">
+                    <label for="gender">Gender: </label>
+                    {{ form.gender }}
+                </div>
+
+
+                 <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+
+
+
+        </div>
+
+
+        <main role="main" class="col-md-9 p-8 offset-8 ml-sm-auto col-lg-10 pt-5 px-5">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <h1 class="h2 pt-5">Transactions</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Transactions {{ trns|length }} </button>
+                        <button class="btn btn-sm btn-outline-secondary">Total Available
+                            Blocks: {{ total_blocks }} </button>
+                    </div>
+
+                </div>
+            </div>
+
+            {% include "parts/transactions.html" %}
+        </main>
+    </div>
+</div>
+</body>
+</html>

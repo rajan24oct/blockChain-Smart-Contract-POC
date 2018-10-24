@@ -3,6 +3,7 @@ from web3 import Web3
 from solc import compile_files, link_code
 import settings
 
+
 # web3.py instance
 w3 = Web3(Web3.HTTPProvider(settings.ETH_URL))
 
