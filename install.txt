@@ -1,3 +1,0 @@
-# to install solidity compiler
-sudo snap install solc
-

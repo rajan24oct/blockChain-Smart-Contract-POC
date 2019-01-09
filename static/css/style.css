@@ -1,0 +1,15 @@
+.addmember input[type="text"]{
+    clear:both;
+    display: block;
+}
+
+.addmember  ul{
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.addmember  ul>li{
+    display: inline;
+    padding-right: 10px;
+}

@@ -19,7 +19,7 @@ class UserSchema(Schema):
 class Members:
 
     def __init__(self):
-        self.file_path = "contracts/build/data.json"
+        self.file_path = "build/data.json"
         with open(self.file_path, 'r') as f:
             datastore = json.load(f)
         self.datastore = datastore

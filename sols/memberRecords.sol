@@ -1,6 +1,6 @@
 pragma solidity ^0.4.21;
 
-import "stringUtils.sol";
+import "sols/stringUtils.sol";
 
 contract memberRecords {
 
