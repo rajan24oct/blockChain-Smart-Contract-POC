@@ -2,7 +2,7 @@ import json
 from com.dl.utils.processor import BCProcessor
 
 # Specify All the Solidity files
-solsArr = ['sols/memberRecords.sol', 'sols/stringUtils.sol']
+solsArr = ['sols/shipment.sol', 'sols/stringUtils.sol']
 
 # compile and Transact into ETH
 bcp = BCProcessor(solsArr)

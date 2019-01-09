@@ -1,9 +1,11 @@
-from com.dl.utils.connector import Members, w3
+from com.dl.utils.connector import Shipments, w3
 from flask import Flask, Response, request, jsonify, flash
 from marshmallow import Schema, fields, ValidationError
 from flask import render_template
 from com.dl.utils.nocache import nocache
-from forms.form import MemberForm
+from forms.form import ShipmentForm
+import datetime
+now = datetime.datetime.now()
 
 SECRET_KEY = 'development'
 
@@ -17,17 +19,18 @@ app.config.from_object(__name__)
 @app.route("/add", methods=['GET', 'POST'])
 @nocache
 def main():
-    mm = Members()
+    mm = Shipments()
     # form to add new members
-    form = MemberForm()
+    form = ShipmentForm()
 
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        gender = request.form['gender']
+        waybill = request.form['waybill']
+        location = request.form['location']
+        status = request.form['status']
+        notes = request.form['notes']
 
         if form.validate():
-            user_data = mm.createMember({"name":name, "email":email, "gender":gender})
+            mm.createShipment({"waybill": waybill, "updated_at": str(now), "location": location, "status": status, "notes": notes})
         else:
             flash('All the form fields are required. ')
 
@@ -42,11 +45,12 @@ def main():
 
 
 
-@app.route("/bc/member", methods=['GET', 'POST'])
+@app.route("/bc/shipment", methods=['GET', 'POST'])
 def transaction():
     body = request.get_json()
-    mm = Members()
-    user_data = mm.createMember(body)
+
+    mm = Shipments()
+    user_data = mm.createShipment(body)
     return jsonify({"data": user_data}), 200
 
 

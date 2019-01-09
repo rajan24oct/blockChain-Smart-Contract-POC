@@ -1,10 +1,14 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, RadioField
 from wtforms.validators import DataRequired, Email
 
 
-class MemberForm(Form):
-    email = StringField('email', validators=[DataRequired(), Email()])
-    name = StringField('name', validators=[DataRequired()])
-    gender =  RadioField('Label', choices=[('male','Male'),('female','Female')], validators=[DataRequired()])
+class ShipmentForm(FlaskForm):
+    waybill = StringField('waybill', validators=[DataRequired()])
+    location = StringField('location', validators=[DataRequired()])
+    status = StringField('status', validators=[DataRequired()])
+    notes = StringField('notes', validators=[DataRequired()])
+
+
+
 

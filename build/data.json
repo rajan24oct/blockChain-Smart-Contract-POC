@@ -2,30 +2,8 @@
     "abi": [
         {
             "constant": false,
-            "inputs": [
-                {
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "name": "gender",
-                    "type": "string"
-                },
-                {
-                    "name": "email",
-                    "type": "string"
-                }
-            ],
-            "name": "setUser",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "constant": false,
             "inputs": [],
-            "name": "getUser",
+            "name": "getShipment",
             "outputs": [
                 {
                     "name": "",
@@ -38,12 +16,50 @@
                 {
                     "name": "",
                     "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
                 }
             ],
             "payable": false,
             "stateMutability": "nonpayable",
             "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "waybill",
+                    "type": "string"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "notes",
+                    "type": "string"
+                }
+            ],
+            "name": "setShipment",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
         }
     ],
-    "contract_address": "0x632b3213640EfD843c676537622076a231330f68"
+    "contract_address": "0xBEC9956A0Df41Ec7E069e05fb1252dAb2780C600"
 }

@@ -2,21 +2,16 @@ import json
 from com.dl.utils.processor import BCProcessor, w3
 from marshmallow import Schema, fields, ValidationError
 
-def check_gender(data):
-    valid_list = ["male", "female"]
-    if data not in valid_list:
-        raise ValidationError(
-            'Invalid gender. Valid choices are'+ valid_list
-        )
+
+class ShipmentSchema(Schema):
+    waybill = fields.String(required=True)
+    updated_at = fields.String(required=True)
+    location = fields.String(required=True)
+    status = fields.String(required=True)
+    notes = fields.String(required=True)
 
 
-class UserSchema(Schema):
-    name = fields.String(required=True)
-    gender = fields.String(required=True, validate=check_gender)
-    email = fields.String(required=True)
-
-
-class Members:
+class Shipments:
 
     def __init__(self):
         self.file_path = "build/data.json"
@@ -76,7 +71,7 @@ class Members:
 
 
 
-    def createMember(self, jsonData):
+    def createShipment(self, jsonData):
         w3.eth.defaultAccount = w3.eth.accounts[1]
 
         abi = self.datastore["abi"]
@@ -87,20 +82,20 @@ class Members:
             address=contract_address, abi=abi,
         )
 
-        result, error = UserSchema().load(jsonData)
+        result, error = ShipmentSchema().load(jsonData)
         if error:
             return error
 
 
-        tx_hash = user.functions.setUser(
-            result['name'], result['gender'], result['email']
+        tx_hash = user.functions.setShipment(
+            result['waybill'], result['updated_at'], result['location'],  result['status'], result['notes']
         )
         tx_hash = tx_hash.transact()
         # Wait for transaction to be mined...
         w3.eth.waitForTransactionReceipt(tx_hash)
-        user_data = user.functions.getUser().call()
+        shipment_data = user.functions.getShipment().call()
 
-        return user_data
+        return shipment_data
 
 
 
