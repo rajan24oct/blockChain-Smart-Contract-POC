@@ -20,8 +20,12 @@ class Shipments:
         self.datastore = datastore
 
 
+
     def getTransactions(self, start_block, end_block=w3.eth.blockNumber):
         w3.eth.defaultAccount = w3.eth.accounts[1]
+
+
+
         transArr = []
         totalArr = []
 
@@ -49,6 +53,7 @@ class Shipments:
                 tmpArr['gas'] = tx['gas']
                 tmpArr['gas_price'] = tx['gasPrice']
                 tmpArr['input'] = tx['input']
+
 
                 tmpArr['hash'] = str(tx['hash'].hex())
                 tmpArr['nonce'] = tx['nonce']

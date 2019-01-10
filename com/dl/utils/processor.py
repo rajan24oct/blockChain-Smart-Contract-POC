@@ -31,6 +31,10 @@ class BCProcessor:
         return main, link
 
 
+
+
+
+
     def deploy_contract(self, contract_interface):
         # Instantiate and deploy contract
         contract = w3.eth.contract(
@@ -43,6 +47,7 @@ class BCProcessor:
         tx_receipt = w3.eth.getTransactionReceipt(tx_hash)
 
         return tx_receipt['contractAddress']
+
 
 
     def deploy_n_transact(self, mappings=[]):
