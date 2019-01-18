@@ -23,8 +23,9 @@ class Shipments:
 
     def getTransactions(self, start_block, end_block=w3.eth.blockNumber):
         w3.eth.defaultAccount = w3.eth.accounts[1]
-
-
+        contract = w3.eth.contract(
+            address=self.datastore["contract_address"], abi=self.datastore["abi"],
+        )
 
         transArr = []
         totalArr = []
@@ -60,6 +61,11 @@ class Shipments:
                 tmpArr['block'] = str(tx['blockHash'].hex())
                 tmpArr['block_number'] = tx['blockNumber']
                 tmpArr['transaction_index'] = tx['transactionIndex']
+                try:
+                    data = contract.functions.getShipment().call(block_identifier=int(tx['blockNumber']))
+                    tmpArr['decoded'] = data
+                except:
+                    tmpArr['decoded'] = "no data"
 
                 totalArr.append(tmpArr)
 

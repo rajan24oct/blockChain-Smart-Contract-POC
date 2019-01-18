@@ -1,20 +1,20 @@
-import pickle
 from web3 import Web3
 from solc import compile_files, link_code
 import settings
+from solc import compile_files, link_code
+from web3 import Web3
 
+import settings
 
 # web3.py instance
 w3 = Web3(Web3.HTTPProvider(settings.ETH_URL))
 
 
 class BCProcessor:
-
     file_path = ""
 
     def __init__(self, file_path):
         self.file_path = file_path
-
 
     def separate_main_n_link(self, contracts):
         # separate out main file and link files
@@ -30,11 +30,6 @@ class BCProcessor:
                 link[key] = contracts[key]
         return main, link
 
-
-
-
-
-
     def deploy_contract(self, contract_interface):
         # Instantiate and deploy contract
         contract = w3.eth.contract(
@@ -47,8 +42,6 @@ class BCProcessor:
         tx_receipt = w3.eth.getTransactionReceipt(tx_hash)
 
         return tx_receipt['contractAddress']
-
-
 
     def deploy_n_transact(self, mappings=[]):
         # compile all files

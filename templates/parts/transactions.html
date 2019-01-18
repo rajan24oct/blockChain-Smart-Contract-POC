@@ -44,7 +44,11 @@
                 <div class="card-body">
                     <b>From:</b> {{ trn['from'] }} &raquo; <b>To:</b> {{ trn['to'] }}, <b>Value</b> {{ trn['value'] }}, <b>Gas Price</b> {{ trn['gas_price'] }}
                     <hr>
-                   {{ trn['input'] }}
+                    <h3>Encrypted</h3>
+                    {{ trn['input'] }}
+
+                    <h3>Decrypted</h3>
+                   {{ trn['decoded'] }}
 
                 </div>
             </div>
