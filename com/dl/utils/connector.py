@@ -21,7 +21,7 @@ class Shipments:
 
 
 
-    def getTransactions(self, start_block, end_block=w3.eth.blockNumber):
+    def getTransactions(self, start_block):
         w3.eth.defaultAccount = w3.eth.accounts[1]
         contract = w3.eth.contract(
             address=self.datastore["contract_address"], abi=self.datastore["abi"],
@@ -29,7 +29,7 @@ class Shipments:
 
         transArr = []
         totalArr = []
-
+        end_block = w3.eth.blockNumber
         for idx in range(start_block, end_block):
             print('Fetching block %d, remaining: %d, progress: %d%%' % (
                 idx, (end_block - idx), 100 * (idx - start_block) / (end_block - start_block)))
