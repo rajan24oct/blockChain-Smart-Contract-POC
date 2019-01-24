@@ -2,12 +2,12 @@ import json
 from solc import compile_files
 from web3 import Web3
 
-sols = ['1-shipment.sol']
+sols = ['contract.sol']
 
 compliled_contract = compile_files(sols)
 
-abi = compliled_contract['1-shipment.sol:shipmentRecords']['abi']
-bytecode = compliled_contract['1-shipment.sol:shipmentRecords']['bin']
+abi = compliled_contract['contract.sol:shipmentRecords']['abi']
+bytecode = compliled_contract['contract.sol:shipmentRecords']['bin']
 
 # w3 = Web3(Web3.HTTPProvider('http://35.240.174.241:8545'))
 w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
