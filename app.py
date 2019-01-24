@@ -1,18 +1,18 @@
-from com.dl.utils.connector import Shipments, w3
-from flask import Flask, Response, request, jsonify, flash
-from marshmallow import Schema, fields, ValidationError
+import datetime
+
+from flask import Flask, request, jsonify, flash
 from flask import render_template
+
+from com.dl.utils.connector import Shipments, w3
 from com.dl.utils.nocache import nocache
 from forms.form import ShipmentForm
-import datetime
+
 now = datetime.datetime.now()
 
 SECRET_KEY = 'development'
 
-
 app = Flask(__name__)
 app.config.from_object(__name__)
-
 
 
 @app.route('/')
@@ -30,7 +30,8 @@ def main():
         notes = request.form['notes']
 
         if form.validate():
-            mm.createShipment({"waybill": waybill, "updated_at": str(now), "location": location, "status": status, "notes": notes})
+            mm.createShipment(
+                {"waybill": waybill, "updated_at": str(now), "location": location, "status": status, "notes": notes})
         else:
             flash('All the form fields are required. ')
 
@@ -41,8 +42,8 @@ def main():
     # check your transactions, contracts
     trns = mm.getTransactions(0)
 
-    return render_template("base.html", total_blocks=total_blocks, trns=trns['transArr'], alltrns=trns['totalArr'],form=form)
-
+    return render_template("base.html", total_blocks=total_blocks, trns=trns['transArr'], alltrns=trns['totalArr'],
+                           form=form)
 
 
 @app.route("/bc/shipment", methods=['GET', 'POST'])
@@ -55,4 +56,4 @@ def transaction():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

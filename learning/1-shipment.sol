@@ -1,7 +1,5 @@
 pragma solidity ^0.4.21;
 
-import "sols/stringUtils.sol";
-
 contract shipmentRecords {
 
     struct shipment {
