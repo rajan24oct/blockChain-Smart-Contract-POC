@@ -9,7 +9,8 @@ compliled_contract = compile_files(sols)
 abi = compliled_contract['1-shipment.sol:shipmentRecords']['abi']
 bytecode = compliled_contract['1-shipment.sol:shipmentRecords']['bin']
 
-w3 = Web3(Web3.HTTPProvider('http://35.240.174.241:8545'))
+# w3 = Web3(Web3.HTTPProvider('http://35.240.174.241:8545'))
+w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
 contract = w3.eth.contract(abi=abi, bytecode=bytecode)
 
 tx_hash = contract.deploy(transaction={'from': w3.eth.accounts[1]})
