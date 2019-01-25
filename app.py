@@ -16,9 +16,21 @@ app.config.from_object(__name__)
 
 
 @app.route('/')
-@app.route("/add", methods=['GET', 'POST'])
 @nocache
 def main():
+    mm = Shipments()
+    total_blocks = w3.eth.blockNumber
+    # check your transactions, contracts
+    trns = mm.getAllBlocks(0)
+
+    return render_template("block.html", total_blocks=total_blocks, trns=trns['transArr'], alltrns=trns['totalArr'])
+
+
+
+@app.route('/home')
+@app.route("/add", methods=['GET', 'POST'])
+@nocache
+def data_home():
     mm = Shipments()
     # form to add new members
     form = ShipmentForm()
@@ -44,6 +56,7 @@ def main():
 
     return render_template("base.html", total_blocks=total_blocks, trns=trns['transArr'], alltrns=trns['totalArr'],
                            form=form)
+
 
 
 @app.route("/bc/shipment", methods=['GET', 'POST'])

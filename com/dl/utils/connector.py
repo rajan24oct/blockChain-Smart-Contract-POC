@@ -20,6 +20,38 @@ class Shipments:
         self.datastore = datastore
 
 
+    def getAllBlocks(self, start_block):
+        w3.eth.defaultAccount = w3.eth.accounts[1]
+        transArr = []
+        totalArr = []
+        end_block = w3.eth.blockNumber
+
+        for idx in range(start_block, end_block+1):
+            block = w3.eth.getBlock(idx, full_transactions=True)
+            for tx in block.transactions:
+
+                tmpArr = {}
+                tmpArr['to'] = tx['to']
+                tmpArr['from'] = tx['from']
+                tmpArr['value'] = tx['value']
+                tmpArr['gas'] = tx['gas']
+                tmpArr['gas_price'] = tx['gasPrice']
+                tmpArr['input'] = tx['input']
+
+                tmpArr['hash'] = str(tx['hash'].hex())
+                tmpArr['nonce'] = tx['nonce']
+                tmpArr['block'] = str(tx['blockHash'].hex())
+                tmpArr['block_number'] = tx['blockNumber']
+                tmpArr['transaction_index'] = tx['transactionIndex']
+                totalArr.append(tmpArr)
+                transArr.append(tmpArr)
+
+        retval = {}
+        retval['totalArr'] = totalArr
+        retval['transArr'] = transArr
+
+        return retval
+
 
     def getTransactions(self, start_block):
         w3.eth.defaultAccount = w3.eth.accounts[1]
