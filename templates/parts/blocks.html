@@ -1,0 +1,86 @@
+<div class="table-responsive">
+    {#    <table class="table table-striped table-sm">#}
+    {#        <thead>#}
+    {##}
+    {#         <tr>#}
+    {#            {% for elem in trns[0] %}#}
+    {#                <th>{{ elem }}</th>#}
+    {#            {% endfor %}#}
+    {#            </tr>#}
+    {##}
+    {##}
+    {##}
+    {#        </thead>#}
+    {#        <tbody>#}
+    {##}
+    {#        {% for trn in trns %}#}
+    {#            <tr>#}
+    {#            {% for elem in trn %}#}
+    {#                <td>{{ trn[elem]}}</td>#}
+    {#            {% endfor %}#}
+    {#            </tr>#}
+    {#        {% endfor %}#}
+    {##}
+    {##}
+    {#        </tbody>#}
+    {#    </table>#}
+
+
+    <div id="accordion">
+
+         {% for trn in alltrns|reverse %}
+
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            Block {{ trn['block_number'] }}: {{ trn['block'] }}, Hash: {{ trn['hash'] }}, Transaction Index: {{ trn['transaction_index'] }}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <b>From:</b> {{ trn['from'] }} &raquo; <b>To:</b> {{ trn['to'] }}, <b>Value</b> {{ trn['value'] }}, <b>Gas Price</b> {{ trn['gas_price'] }}
+                    <hr>
+                    <h3>Encrypted</h3>
+                    {{ trn['input'] }}
+
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+{#    <table class="table table-striped table-sm">#}
+{#        <thead>#}
+{##}
+{#        <tr>#}
+{#            {% for elem in alltrns[0] %}#}
+{#                <th>{{ elem }}</th>#}
+{#            {% endfor %}#}
+{#        </tr>#}
+{##}
+{##}
+{#        </thead>#}
+{#        <tbody>#}
+{##}
+{#        {% for trn in alltrns %}#}
+{#            <tr>#}
+{#                {% for elem in trn %}#}
+{#                    <td>{{ trn[elem] }}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{##}
+{##}
+{#        </tbody>#}
+{#    </table>#}
+</div>
+
+
+</div>
