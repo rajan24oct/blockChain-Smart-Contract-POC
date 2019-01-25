@@ -1,86 +1,75 @@
-<div class="table-responsive">
-    {#    <table class="table table-striped table-sm">#}
-    {#        <thead>#}
-    {##}
-    {#         <tr>#}
-    {#            {% for elem in trns[0] %}#}
-    {#                <th>{{ elem }}</th>#}
-    {#            {% endfor %}#}
-    {#            </tr>#}
-    {##}
-    {##}
-    {##}
-    {#        </thead>#}
-    {#        <tbody>#}
-    {##}
-    {#        {% for trn in trns %}#}
-    {#            <tr>#}
-    {#            {% for elem in trn %}#}
-    {#                <td>{{ trn[elem]}}</td>#}
-    {#            {% endfor %}#}
-    {#            </tr>#}
-    {#        {% endfor %}#}
-    {##}
-    {##}
-    {#        </tbody>#}
-    {#    </table>#}
+<div id="gridBlock">
 
 
-    <div id="accordion">
+    <div class="gridBlock overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://digitallab.dhl.com">
+                            <img src="{{ url_for('static', filename='img/dl_logo.png') }}" data-holder-rendered="true"/>
+                        </a>
+                    </div>
+                       <div class="col company-details">
+                        <h2 class="name">
+                           Available Blocks: {{ total_blocks }}
+                        </h2>
+                            <div><A href="#"> Dashboard: </A></div>
+                           <div><A href="https://github.com/rajan24oct/sc-steps">GIT URL: Sample Step by Step code</A></div>
 
-         {% for trn in alltrns|reverse %}
 
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="true"
-                            aria-controls="collapseOne">
-                            Block {{ trn['block_number'] }}: {{ trn['block'] }}, Hash: {{ trn['hash'] }}, Transaction Index: {{ trn['transaction_index'] }}
-                    </button>
-                </h5>
-            </div>
-
-            <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <b>From:</b> {{ trn['from'] }} &raquo; <b>To:</b> {{ trn['to'] }}, <b>Value</b> {{ trn['value'] }}, <b>Gas Price</b> {{ trn['gas_price'] }}
-                    <hr>
-                    <h3>Encrypted</h3>
-                    {{ trn['input'] }}
-
+                    </div>
 
                 </div>
-            </div>
+            </header>
+            <main>
+
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th>BLOCK#</th>
+                        <th class="text-left">BLOCK</th>
+                        <th class="text-right">FROM</th>
+                        <th class="text-right">TO</th>
+                        <th class="text-right">GAS PRICE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for trn in alltrns|reverse %}
+                        <tr>
+                            <td class="no">{{ trn['block_number'] }}</td>
+                            <td class="text-left">
+                                Block: {{ trn['block'] }} <br>
+
+                                Hash: {{ trn['hash'] }}
+
+
+                                <h3>Input</h3>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="{{ trn['input']    }}">{{ trn['input'][:80] }} ...</a>
+
+
+
+
+
+                            </td>
+                            <td class="text-right">{{ trn['from'] }}</td>
+                            <td class="text-right">{{ trn['to'] }}</td>
+                            <td class="text-right">{{ trn['gas_price'] }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </main>
+
         </div>
 
-        {% endfor %}
-
-
+        <div></div>
     </div>
-{#    <table class="table table-striped table-sm">#}
-{#        <thead>#}
-{##}
-{#        <tr>#}
-{#            {% for elem in alltrns[0] %}#}
-{#                <th>{{ elem }}</th>#}
-{#            {% endfor %}#}
-{#        </tr>#}
-{##}
-{##}
-{#        </thead>#}
-{#        <tbody>#}
-{##}
-{#        {% for trn in alltrns %}#}
-{#            <tr>#}
-{#                {% for elem in trn %}#}
-{#                    <td>{{ trn[elem] }}</td>#}
-{#                {% endfor %}#}
-{#            </tr>#}
-{#        {% endfor %}#}
-{##}
-{##}
-{#        </tbody>#}
-{#    </table>#}
 </div>
+
 
 
 </div>

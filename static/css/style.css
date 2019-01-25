@@ -24,3 +24,113 @@
     box-shadow: none;
 }
 
+
+#gridBlock{
+    padding: 30px;
+}
+
+.gridBlock {
+    position: relative;
+    background-color: #FFF;
+    min-height: 680px;
+    padding: 15px
+}
+
+.gridBlock header {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3989c6
+}
+
+.gridBlock .company-details {
+    text-align: right
+}
+
+.gridBlock .company-details .name {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.gridBlock .contacts {
+    margin-bottom: 20px
+}
+
+.gridBlock .gridBlock-to {
+    text-align: left
+}
+
+.gridBlock .gridBlock-to .to {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.gridBlock .gridBlock-details {
+    text-align: right
+}
+
+.gridBlock .gridBlock-details .gridBlock-id {
+    margin-top: 0;
+    color: #3989c6
+}
+
+.gridBlock main {
+    padding-bottom: 50px
+}
+
+.gridBlock main .thanks {
+    margin-top: -100px;
+    font-size: 2em;
+    margin-bottom: 50px
+}
+
+.gridBlock main .notices {
+    padding-left: 6px;
+    border-left: 6px solid #3989c6
+}
+
+.gridBlock main .notices .notice {
+    font-size: 1.2em
+}
+
+.gridBlock table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px
+}
+
+
+.gridBlock table .text-right{
+    word-wrap: break-word;
+    vertical-align: text-top;
+
+}
+
+.gridBlock table td,.gridBlock table th {
+    padding: 15px;
+    background: #eee;
+    border: 1px solid #000;
+    word-wrap: break-word;
+}
+
+.gridBlock table th {
+    white-space: nowrap;
+    font-weight: 400;
+    background-color: #DDD;
+
+    font-size: 1.2em;
+}
+
+.gridBlock table h3 {
+
+    font-size: 1.6em;
+    margin-top: 5px;
+}
+
+
+
+.gridBlock table .no {
+    color: #fff;
+    font-size: 1.6em;
+    background: #3989c6
+}
