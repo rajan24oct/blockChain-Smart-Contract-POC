@@ -1,0 +1,76 @@
+<div id="gridBlock">
+
+
+    <div class="gridBlock overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://digitallab.dhl.com">
+                            <img class="logo" src="{{ url_for('static', filename='img/dl_logo.png') }}" data-holder-rendered="true"/>
+                        </a>
+                    </div>
+                       <div class="col company-details">
+                        <h2 class="name">
+                           Available Blocks: {{ total_blocks }}
+                        </h2><hr>
+                            <div><A href="#"> Dashboard: </A> |
+
+                           <A target="_blank" href="https://github.com/rajan24oct/sc-steps">SAMPLE CODE</A></div>
+
+
+                    </div>
+
+                </div>
+            </header>
+            <main>
+
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th>BLOCK#</th>
+                        <th class="text-left">BLOCK</th>
+                        <th class="text-right">FROM</th>
+                        <th class="text-right">TO</th>
+                        <th class="text-right">GAS PRICE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for trn in alltrns|reverse %}
+                        <tr>
+                            <td class="no">{{ trn['block_number'] }}</td>
+                            <td class="text-left">
+                                Block: {{ trn['block'] }} <br>
+
+                                Hash: {{ trn['hash'] }}
+
+
+                                <h3>Input</h3>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="{{ trn['input']    }}">{{ trn['input'][:80] }} ...</a>
+
+
+
+
+
+                            </td>
+                            <td class="text-right">{{ trn['from'] }}</td>
+                            <td class="text-right">{{ trn['to'] }}</td>
+                            <td class="text-right">{{ trn['gas_price'] }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </main>
+
+        </div>
+
+        <div></div>
+    </div>
+</div>
+
+
+
+</div>

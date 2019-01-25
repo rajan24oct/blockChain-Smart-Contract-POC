@@ -84,41 +84,41 @@
 
 
         <main role="main" class="col-md-9 p-8 offset-8 ml-sm-auto col-lg-10 pt-5 px-5">
-            <div class="row justify-content-center pt-5">
-                <div class="col-12 col-md-10 col-lg-8">
-                    <form class="card card-sm">
-                        <div class="card-body row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <i class="fas fa-search h4 text-body"></i>
-                            </div>
-                            <!--end of col-->
-                            <div class="col">
-                                <input class="form-control form-control-lg form-control-borderless" type="search"
-                                       placeholder="Search AWB no or BLOCK#">
-                            </div>
-                            <!--end of col-->
-                            <div class="col-auto">
-                                <button class="btn btn-lg btn-success" type="submit">Search</button>
-                            </div>
-                            <!--end of col-->
-                        </div>
-                    </form>
-                </div>
-                <!--end of col-->
-            </div>
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
+{#            <div class="row justify-content-center pt-5">#}
+{#                <div class="col-12 col-md-10 col-lg-8">#}
+{#                    <form class="card card-sm">#}
+{#                        <div class="card-body row no-gutters align-items-center">#}
+{#                            <div class="col-auto">#}
+{#                                <i class="fas fa-search h4 text-body"></i>#}
+{#                            </div>#}
+{#                            <!--end of col-->#}
+{#                            <div class="col">#}
+{#                                <input class="form-control form-control-lg form-control-borderless" type="search"#}
+{#                                       placeholder="Search AWB no or BLOCK#">#}
+{#                            </div>#}
+{#                            <!--end of col-->#}
+{#                            <div class="col-auto">#}
+{#                                <button class="btn btn-lg btn-success" type="submit">Search</button>#}
+{#                            </div>#}
+{#                            <!--end of col-->#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#                <!--end of col-->#}
+{#            </div>#}
+{#            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">#}
+{##}
+{#                <div class="btn-toolbar mb-2 mb-md-0">#}
+{#                    <div class="btn-group mr-2">#}
 {#                        <button class="btn btn-sm btn-outline-secondary">Transactions {{ trns|length }} </button>#}
-                        <button class="btn btn-sm btn-outline-secondary">Total Available
-                            Blocks: {{ total_blocks }} </button>
-                    </div>
+{#                        <button class="btn btn-sm btn-outline-secondary">Total Available#}
+{#                            Blocks: {{ total_blocks }} </button>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#            </div>#}
 
-                </div>
-            </div>
-
-            {% include "parts/transactions.html" %}
+            {% include "parts/blocks-home.html" %}
         </main>
     </div>
 </div>
