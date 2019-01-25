@@ -1,7 +1,0 @@
-flask
-flask-restful
-web3
-flask-marshmallow
-wtforms
-flask_wtf
-py-solc
