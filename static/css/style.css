@@ -112,6 +112,10 @@
     border: 1px solid #000;
     word-wrap: break-word;
 }
+.gridBlock img.logo{
+    width:320px;
+    height: auto;
+}
 
 .gridBlock table th {
     white-space: nowrap;
