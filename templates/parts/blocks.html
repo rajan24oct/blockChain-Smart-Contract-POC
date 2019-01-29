@@ -54,7 +54,7 @@
 
                             </td>
                             <td class="text-right">{{ trn['from'] }}</td>
-                            <td class="text-right">{{ trn['to'] }}</td>
+                            <td class="text-right">{{ trn['to'] }}<br><br><strong>{% if trn['to']|string == '--' %}CONTRACT CREATED{% else %}CONTRACT CALLED{% endif %}</strong></td>
                             <td class="text-right">{{ trn['gas_price'] }}</td>
                         </tr>
                     {% endfor %}

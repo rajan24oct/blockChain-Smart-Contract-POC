@@ -31,7 +31,7 @@ class Shipments:
             for tx in block.transactions:
 
                 tmpArr = {}
-                tmpArr['to'] = tx['to']
+                tmpArr['to'] = tx['to'] if not tx['to'] or tx['to'] != '0x0' else '--'
                 tmpArr['from'] = tx['from']
                 tmpArr['value'] = tx['value']
                 tmpArr['gas'] = tx['gas']
